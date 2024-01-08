@@ -4,7 +4,8 @@ body {
 }
 
 body {
-  background: linear-gradient(to bottom, #131313 0%, #02101c 100%);
+  /* background: linear-gradient(to bottom, #131313 0%, #02101c 100%); */
+  /* background-image: url('../img/bg1.png'); */
   margin: 0;
   font-family: Helvetica, sans-serif;
   overflow: hidden;
@@ -30,6 +31,7 @@ a {
 }
 
 .canvas-box {
+  /* background-image: url('../img/bg1.png'); */
   position: fixed;
   left: 0;
   top: 0;
@@ -121,9 +123,9 @@ button:active {
 }
 
 .highlight {
-  background-color: rgba(253, 105, 0, 0.95) !important;
-  box-shadow: 0 0 12px rgba(253, 105, 0, 0.95);
-  border: 1px solid rgba(253, 105, 0, 0.25);
+  background-color: rgba(179, 65, 98, 0.95) !important;
+  box-shadow: 0 0 12px rgba(179, 65, 98, 0.95);
+  border: 1px solid rgba(179, 65, 98, 0.25);
 }
 
 .highlight.element .name {
@@ -136,8 +138,8 @@ button:active {
 
 .prize.element {
   transition: background-color 1.5s ease-in 0.3s;
-  background-color: rgba(253, 105, 0, 0.85) !important;
-  box-shadow: 0 0 12px rgba(253, 105, 0, 0.95);
+  background-color: rgba(179, 65, 98, 0.85) !important;
+  box-shadow: 0 0 12px rgba(179, 65, 98, 0.95);
 }
 
 .prize .company,
@@ -175,7 +177,7 @@ button:active {
   position: fixed;
   left: 0;
   padding-left: 1.2vh;
-  top: 1.2vh;
+  bottom: 9.6vh;
   z-index: 2;
 }
 
@@ -207,7 +209,7 @@ button:active {
   height: 8vh;
   margin-right: 1.2vh;
   border-radius: 50%;
-  background-color: #fff;
+  background-color: #ff8800;
   text-shadow: 0 0 1vh rgba(0, 255, 255, 0.95);
   overflow: hidden;
 }
@@ -247,7 +249,7 @@ button:active {
   border-radius: 1.8vh;
   position: relative;
   animation: animate-positive 2s;
-  background-color: #d9534f;
+  background-color: #7c64b1;
   height: 1.8vh;
   -webkit-transition: width 0.6s ease;
   -o-transition: width 0.6s ease;
@@ -468,7 +470,8 @@ button:active {
 .prize-shine {
   font-size: 5vh;
   font-weight: bold;
-  color: #db5c58;
+  /* color: #db5c58; */
+  color: #b34162;
   vertical-align: middle;
   padding: 0 6px;
 }
@@ -514,7 +517,7 @@ button:active {
   font-size: 1.4vh;
   color: #fff;
   cursor: pointer;
-  background-color: rgba(253, 105, 0, 0.9);
+  background-color: rgba(179, 65, 98, 0.9);
   border: 1px solid rgba(255, 255, 255, 0.5);
 }
 

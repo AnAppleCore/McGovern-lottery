@@ -1,9 +1,17 @@
 (function () {
-  //based on an Example by @curran
   window.requestAnimFrame = (function () {
     return window.requestAnimationFrame;
   })();
   var canvas = document.getElementById("canvas");
+  var backgroundImage = document.getElementById("backgroundImage");
+  var bgLoaded = false;
+
+  backgroundImage.onload = function () {
+    bgLoaded = true;
+    executeFrame();
+  };
+
+  backgroundImage.src = "./img/bg1.png";
 
   ~~(function setSize() {
     //定义canvas的宽高，让他跟浏览器的窗口的宽高相同
@@ -33,6 +41,7 @@
   function executeFrame() {
     if (animate) requestAnimFrame(executeFrame);
     moveStars();
+    drawBackground();
     drawStars();
   }
 
@@ -63,6 +72,12 @@
     }
   }
 
+  function drawBackground() {
+    if (bgLoaded) {
+      c.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
+    }
+  }
+
   function drawStars() {
     var pixelX, pixelY, pixelRadius;
 
@@ -76,8 +91,9 @@
       initializeStars();
     }
     if (warp == 0) {
-      c.fillStyle = "rgba(0,10,20,1)";
-      c.fillRect(0, 0, canvas.width, canvas.height);
+      // Remove the code setting the solid color background
+      // c.fillStyle = "rgba(0,10,20,1)";
+      // c.fillRect(0, 0, canvas.width, canvas.height);
     }
     c.fillStyle = "rgba(209, 255, 255, " + radius + ")";
     for (i = 0; i < numStars; i++) {
@@ -91,7 +107,6 @@
 
       c.fillRect(pixelX, pixelY, pixelRadius, pixelRadius);
       c.fillStyle = "rgba(209, 255, 255, " + star.o + ")";
-      //c.fill();
     }
   }
 
