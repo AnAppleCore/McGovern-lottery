@@ -113,6 +113,35 @@ function initAll() {
   });
 }
 
+function initPrizeItemEvents() {
+  const prizeItems = document.querySelectorAll(".prize-item");
+  prizeItems.forEach((prizeItem, index) => {
+    prizeItem.addEventListener("click", function (e) {
+      e.stopPropagation();
+      if (isLotting) {
+        if (e.target.id === "lottery") {
+          rotateObj.stop();
+          btns.lottery.innerHTML = "开始抽奖";
+        } else {
+          addQipao("正在抽奖，请抽奖完毕后尝试");
+        }
+        return false;
+      };
+      handlePrizeItemClick(index+1);
+    })
+  });
+}
+
+function handlePrizeItemClick(prizeIndex) {
+  console.log(`你点击了 奖品${prizeIndex}`)
+  currentPrizeIndex = prizeIndex;
+  currentPrize = basicData.prizes[currentPrizeIndex];
+  showPrizeList(currentPrizeIndex);
+  let curLucks = basicData.luckyUsers[currentPrize.type];
+  setPrizeData(currentPrizeIndex, curLucks ? curLucks.length : 0, true);
+  addQipao(`切换奖品为[${currentPrize.title}]`);
+}
+
 function initCards() {
   let member = basicData.users.slice(),
     showCards = [],
@@ -206,6 +235,9 @@ function setLotteryStatus(status = false) {
  * 事件绑定
  */
 function bindEvent() {
+
+  // initPrizeItemEvents();
+
   document.querySelector("#menu").addEventListener("click", function (e) {
     e.stopPropagation();
     // 如果正在抽奖，则禁止一切操作
